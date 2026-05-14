@@ -1,0 +1,28 @@
+:root{
+    --purple: #bb5098;
+    --yellow: #f5c63c;
+    --orange: #ffb32b;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
