@@ -28,6 +28,7 @@ body{
     flex-direction: column;
 }
 
+/* NAVBAR */
 header{
     width: 100%;
     height: 80px;
@@ -49,6 +50,7 @@ a{
     display: flex;
     align-items: center;
     padding: 0 30px;
+    z-index: 1000;
 
 }
 .logo-img{
@@ -80,6 +82,58 @@ a{
     background-color: var(--orange);
     color: var(--purple-main);
 }
+
+.menu-toggle{
+    display: none;
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+}
+.menu-toggle i{
+    font-size: 24px;
+}
+.nav-mobile{
+    position: absolute;
+    display: none;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--purple-main);
+    top: 0;
+    z-index: 20;
+    transition: 0.3s all ease;
+}
+.navlist-mobile{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 0 15%;
+}
+.nav-item-mobile{
+    display: flex;
+    width: 100%;
+    padding: 12px 24px;
+}
+.nav-link-mobile{
+    width: 100%;
+    color: var(--white);
+    font-family: Titan One;
+    font-size: 36px;
+    font-weight: 400;
+}
+.btn-cadastrar-mobile{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--orange);
+    color: var(--purple-main);
+    border-radius: 10px;
+    padding: 12px 24px;
+}
+
+/* MAIN */
 main{
     display: flex;
     flex-direction: column;
@@ -101,7 +155,6 @@ main{
     border-radius: 10px;
     padding: 0 5px;
     margin: 0 auto;
-    margin-top: 40px;
 }
 .search-recipes button{
     width: 30px;
@@ -149,7 +202,7 @@ main{
 }
 .init-subtitle{
     position: absolute;
-    bottom: 200px;
+    bottom: 15%;
     left: 15%;
 }
 
