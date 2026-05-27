@@ -22,6 +22,7 @@
 }
 
 body{
+    width: 100%;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -98,12 +99,12 @@ a{
     position: absolute;
     display: none;
     align-items: center;
-    background: var(--purple-main);
+    background-color: var(--purple-main);
     width: 100%;
     height: 100vh;
     top: 0;
     z-index: 99;
-    transition: 0.3s background ease-in;
+    transition: 0.3s background-color ease-in;
     
 }
 .nav-mobile.active{
@@ -126,7 +127,7 @@ a{
     width: 100%;
     color: var(--white);
     font-family: Titan One;
-    font-size: 36px;
+    font-size: clamp(1rem, calc(2vw + 1rem), 36px);
     font-weight: 400;
     transition: 0.3s color ease;
 }
@@ -152,6 +153,7 @@ a{
 main{
     display: flex;
     flex-direction: column;
+    margin-top: -2px;
 }
 .init-content{
     width: 100%;
@@ -201,13 +203,13 @@ main{
     font-weight: 400;
 }
 .init-title-h1{
-    font-size: clamp(4.5rem, calc(5vw + 2rem), 5rem);
+    font-size: clamp(1.5rem, calc(5vw + 1rem), 4rem);
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
     margin: 0 0 0 15%;
     margin-top: 20px;
 }
 .init-title-h2{
-    font-size: 2.5rem;
+    font-size: clamp(1rem, calc(3vw + 1rem), 2rem);
     margin-bottom: 20px;
 }
 .init-content p{
@@ -227,6 +229,23 @@ main{
     }
     .navlist{
         display: none;
+    }
+    .init-content{
+        align-items: center;
+        padding-top: 5%;
+    }
+    .init-title-h1{
+        margin: 0;
+        margin-top: 20px;
+
+    }
+    .init-title-h2{
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .init-subtitle{
+        left: 10%;
+        bottom: 10%;
     }
 }
 
