@@ -1,47 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro | Wasfa</title>
+    <title>Login | Wasfa</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-
-    <!-- FONTAWESOME -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/loginstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
-    <header>
+
+<header>
       <nav class="navbar">
-        <a href="../index.html"><img src="../img/wasfa-logo-1.png" alt="Wasfa" class="logo-img"></a>
+        <a href="../index.html"><img src="../img/wasfalogo.png" alt="Wasfa" class="logo-img"></a>
         <ul class="navlist">
           <li class="nav-item"><a class="nav-link" href="../index.html">Início</a></li>
           <li class="nav-item"><a class="nav-link" href="./receitas.html">Receitas</a></li>
           <li class="nav-item"><a class="nav-link" href="./sobre.html">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="./contato.html">Contato</a></li>
-          <li class="nav-item"><a href="./login.html" class="btn btn-cadastrar">Cadastrar</a></li>
         </ul>
 
-        <!-- MENU MOBILE -->
         <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
       </nav>
-      <nav class="nav-mobile" id="navMobile">
+      <nav class="nav-mobile">
         <ul class="navlist-mobile">
           <li class="nav-item-mobile"><a href="../index.html" class="nav-link-mobile">Inicio</a></li>
           <li class="nav-item-mobile"><a href="./receitas.html" class="nav-link-mobile">Receitas</a></li>
           <li class="nav-item-mobile"><a href="./sobre.html" class="nav-link-mobile">Sobre</a></li>
           <li class="nav-item-mobile"><a href="./contato.html" class="nav-link-mobile">Contato</a></li>
-          <li class="nav-item-mobile"><a href="./login.html" class="nav-link-mobile btn-cadastrar-mobile">Cadastrar</a></li>
         </ul>
       </nav>
     </header>
-    <main>
-        
-    </main>
-    <footer>
+<main>
 
-    </footer>
+<div class="cadastro-container">
 
-    <script src="../js/script.js"></script>
+    <div class="cadastro-box">
+
+        <div class="auth-toggle">
+            <button id="btn-login-tab" class="active">Entrar</button>
+            <button id="btn-signup-tab">Criar Conta</button>
+            <button id="btn-logout" style="display:none;">Sair</button>
+        </div>
+
+        <div class="auth-forms">
+
+            <form id="login-form" class="auth-form active">
+
+                <h1 class="cadastro-title">Entrar</h1>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input placeholder="Insira seu email" id="login-email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input placeholder="Insira sua senha" type="password" id="login-password" required>
+                </div>
+
+                <button type="submit" class="btn-cadastro">Entrar</button>
+            </form>
+
+            <form id="signup-form" class="auth-form">
+
+                <h1 class="cadastro-title">Criar conta</h1>
+
+                <div class="input-group">
+                    <label>Nome</label>
+                    <input placeholder="Insira seu nome" id="signup-name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input placeholder="Insira seu email" id="signup-email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input placeholder="Crie uma senha" type="password" id="signup-password" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirmar senha</label>
+                    <input placeholder="Confirme sua senha" type="password" id="signup-password-confirm" required>
+                </div>
+
+                <button type="submit" class="btn-cadastro">Cadastrar</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+<script src="../js/loginscript.js"></script>
+
 </body>
 </html>
