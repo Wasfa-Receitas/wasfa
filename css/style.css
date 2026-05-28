@@ -27,6 +27,7 @@ body{
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -154,7 +155,7 @@ main{
     display: flex;
     flex-direction: column;
     background-color: var(--purple-main);
-    padding: 20px 8%;
+    padding: 0 8%;
 }
 .init-content{
     width: 100%;
@@ -173,6 +174,7 @@ main{
     border-radius: 10px;
     padding: 0 5px;
     margin: 0 auto;
+    z-index: 2;
 }
 .search-recipes button{
     width: 30px;
@@ -203,14 +205,28 @@ main{
     color: var(--white);
     font-weight: 400;
 }
+.init-title{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 0 0 0 15%;
+    margin-top: 20px
+}
 .init-title-h1{
     font-size: clamp(1.5rem, calc(5vw + 1rem), 5rem);
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
-    margin: 0 0 0 15%;
-    margin-top: 20px;
+    z-index: 2;
+    transition: 0.3s all ease;
+}
+.init-title-h1-star{
+    position: absolute;
+    width: 200px;
+    margin-bottom: -20px;
+    margin-left: -65px;
+    z-index: 0;
 }
 .init-title-h2{
-    font-size: clamp(1rem, calc(3vw + 1rem), 2rem);
+    font-size: clamp(1rem, calc(3vw + 1rem), 3rem);
     margin-bottom: 20px;
 }
 .init-content p{
@@ -222,6 +238,102 @@ main{
     position: absolute;
     bottom: 15%;
     left: 15%;
+}
+.roleta-comida-container{
+    position: absolute;
+    width: 1200px;
+    height: 1200px;
+    bottom: -600px;
+    right: -600px;
+    transition: 2s all ease;
+
+}
+.roleta-comida{
+    position: absolute;
+    width: 1200px;
+    height: 1200px;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: rotate(180deg);
+}
+.roleta-comida-container img{
+    display: none;
+    position: absolute;
+    left: 50%;
+}
+.roleta-comida-container img:nth-child(2){
+    display: flex;
+    width: 800px;
+    top: -150px;
+    left: -300px;
+    bottom: 0;
+
+}
+.roleta-comida-container img:nth-child(3){
+    display: flex;
+    width: 700px;
+    top: -50px;
+    left: 550px;
+    bottom: 0;
+    transform: rotate(90deg);
+
+}
+.roleta-comida-container img:nth-child(4){
+    display: flex;
+    width: 700px;
+    transform: rotate(180deg);
+    bottom: -150px;
+    left: 750px;
+
+}
+.roleta-comida-container img:nth-child(5){
+    display: flex;
+    width: 700px;
+    bottom: -100px;
+    left: -50px;
+    transform: rotate(270deg);
+
+}
+
+.roleta-comida-amarelo{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 0;
+    background-color: var(--yellow);
+}
+.roleta-comida-laranja{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    right: 0;
+    background-color: var(--orange);
+}
+.roleta-comida-verde{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    bottom: 0;
+    right: 0;
+    background-color: var(--green);
+}
+.roleta-comida-vermelho{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--red);
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
 
 /* RECEITAS */
@@ -374,6 +486,12 @@ main{
 .receita-rate{
     margin-left: auto;
     color: var(--green);
+}
+
+footer{
+    background-color: var(--purple-main);
+    height: 900px;
+    z-index: 1;
 }
 @media (max-width: 968px){
     .menu-toggle{
