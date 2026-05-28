@@ -91,7 +91,7 @@ loginForm.addEventListener('submit', function(e){
         return;
     }
 
-    alert(`Bem-vindo(a), ${storedUser.username}!`);
+    window.location.href = "../pages/perfil.html"
 
     localStorage.setItem('loggedUser', storedUser.username);
 
