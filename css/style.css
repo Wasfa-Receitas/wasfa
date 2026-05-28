@@ -339,6 +339,7 @@ main{
 /* RECEITAS */
 .main-receitas{
     background-color: var(--purple-main);
+    padding-bottom: 50px;
 }
 .init-receitas-h1{
     font-size: clamp(1.5rem, calc(5vw + 1rem), 5rem);
