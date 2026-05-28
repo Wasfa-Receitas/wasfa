@@ -119,7 +119,20 @@ if(localStorage.getItem('loggedUser')){
 
 const menuToggle = document.getElementById('menuToggle');
 const navMobile = document.querySelector('.nav-mobile');
+const icon = menuToggle.querySelector("i");
 
 menuToggle.addEventListener('click', () => {
-    navMobile.classList.toggle('active');
+  navMobile.classList.toggle('active');
+
+  if(icon.classList.contains("fa-bars")){
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+    }else{
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    }
 });
