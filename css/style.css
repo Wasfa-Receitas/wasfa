@@ -419,7 +419,7 @@ main{
     margin-top: 20px;
     font-size: 24px;
     color: var(--red);
-    z-index: 2;
+    z-index: 3;
 }
 .receita-info{
     border-bottom: 1px solid #292929;
@@ -514,6 +514,382 @@ main{
 .receita-rate{
     margin-left: auto;
     color: var(--green);
+}
+/* PÁGINA DE RECEITA — cole no final do css/style.css */
+.main-receita{
+    background-color: var(--purple-main);
+    padding-bottom: 60px;
+}
+.receita-page{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.receita-voltar{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--yellow-light);
+    font-weight: 600;
+    transition: 0.3s color ease;
+}
+.receita-voltar:hover{
+    color: var(--orange);
+}
+
+/* HERO */
+.receita-hero{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #473897;
+}
+.receita-hero-img{
+    flex: 0 0 380px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--yellow);
+    border-radius: 50%;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+.receita-hero-img img{
+    width: 80%;
+    height: 80%;
+    border-radius: 1000px;
+    object-fit: cover;
+    object-position: center;
+}
+.receita-hero-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.receita-tag{
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+.almoco-tag{
+    background-color: var(--yellow);
+    color: var(--green);
+}
+.receita-page .receita-title{
+    font-size: clamp(1.8rem, calc(3vw + 1rem), 3.5rem);
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--white);
+    text-shadow: 6px 6px 8px rgba(0, 0, 0, 0.3);
+}
+.receita-resumo{
+    color: var(--white);
+    line-height: 1.6;
+    max-width: 520px;
+}
+.receita-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.receita-meta li{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #333;
+    color: var(--white);
+    font-weight: 600;
+    border-radius: 20px;
+}
+.receita-meta i{
+    color: var(--orange);
+}
+.receita-meta-nota i{
+    color: var(--yellow);
+}
+.receita-hero-info .favoritar{
+    margin-top: 4px;
+    cursor: pointer;
+    transition: 0.3s transform ease;
+}
+.receita-hero-info .favoritar:hover{
+    transform: scale(1.2);
+}
+
+/* CORPO */
+.receita-corpo{
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 30px;
+    margin-top: 40px;
+    align-items: start;
+}
+.receita-bloco{
+    background-color: #333;
+    color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.receita-bloco h2{
+    font-size: 1.6rem;
+    color: var(--orange);
+    margin-bottom: 20px;
+}
+.receita-ingredientes li{
+    padding: 10px 0 10px 28px;
+    position: relative;
+    border-bottom: 1px solid #292929;
+}
+.receita-ingredientes li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%);
+    background-color: var(--yellow);
+    border-radius: 50%;
+}
+.receita-preparo ol{
+    list-style: none;
+    counter-reset: passo;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.receita-preparo li{
+    counter-increment: passo;
+    display: flex;
+    gap: 16px;
+    line-height: 1.6;
+}
+.receita-preparo li::before{
+    content: counter(passo);
+    flex: 0 0 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--orange);
+    color: var(--purple-main);
+    font-family: 'Titan One', sans-serif;
+    border-radius: 50%;
+}
+/* PÁGINA SOBRE — cole no final do css/style.css */
+.main-sobre{
+    background-color: var(--purple-main);
+    padding-bottom: 70px;
+}
+.sobre-page{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    padding-top: 50px;
+}
+
+/* HERO */
+.sobre-hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+}
+.sobre-hero-titulo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sobre-estrela{
+    position: absolute;
+    width: 220px;
+    z-index: 0;
+}
+.sobre-h1{
+    position: relative;
+    z-index: 1;
+    font-size: clamp(2rem, calc(5vw + 1rem), 4.5rem);
+    text-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
+}
+.sobre-lead{
+    max-width: 640px;
+    color: var(--yellow-light);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+.sobre-lead strong{
+    color: var(--orange);
+}
+
+/* TEXTO */
+.sobre-texto{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 50px;
+    border-top: 2px solid #473897;
+    color: var(--white);
+    line-height: 1.8;
+}
+.sobre-texto h2,
+.sobre-equipe h2,
+.sobre-cta h2{
+    color: var(--orange);
+    font-size: clamp(1.5rem, calc(2vw + 1rem), 2.2rem);
+}
+
+/* CARDS DE VALORES */
+.sobre-valores{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.sobre-card{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #333;
+    color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s transform ease;
+}
+.sobre-card:hover{
+    transform: translateY(-10px);
+}
+.sobre-card-icone{
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--yellow);
+    color: var(--purple-main);
+    font-size: 24px;
+    border-radius: 50%;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.sobre-card h3{
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--orange);
+}
+.sobre-card p{
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* EQUIPE */
+.sobre-equipe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+.sobre-equipe-lista{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+.sobre-equipe-lista li{
+    padding: 10px 24px;
+    background-color: var(--yellow);
+    color: var(--green);
+    font-weight: 600;
+    border-radius: 20px;
+    transition: 0.3s transform ease;
+}
+.sobre-equipe-lista li:hover{
+    transform: scale(1.1) rotate(-3deg);
+}
+
+/* CTA */
+.sobre-cta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+.sobre-cta-btn{
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    transition: 0.3s background-color ease;
+}
+.sobre-cta-btn:hover{
+    background-color: var(--yellow);
+}
+
+@media (max-width: 968px){
+    .sobre-valores{
+        grid-template-columns: 1fr;
+    }
+    .sobre-estrela{
+        width: 160px;
+    }
+}
+
+@media (max-width: 968px){
+    .receita-hero{
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .receita-hero-img{
+        flex-basis: auto;
+        width: min(300px, 80%);
+    }
+    .receita-hero-info{
+        align-items: center;
+    }
+    .receita-meta{
+        justify-content: center;
+    }
+    .receita-corpo{
+        grid-template-columns: 1fr;
+    }
+}
+/* TOAST (mensagem ao favoritar) — cole no final do css/style.css */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    max-width: 90%;
+    padding: 14px 24px;
+    background-color: var(--orange);
+    color: var(--purple-main);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
 
 footer{
@@ -701,5 +1077,303 @@ footer img{
         margin-top: 0;
     }
 
+}
+
+/* LOGIN — cole no final do css/style.css (e apague o css/loginstyle.css) */
+.main-login{
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 5%;
+}
+.login-card{
+    width: 100%;
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.2);
+}
+.login-side{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 40px;
+    text-align: center;
+    background-color: var(--yellow);
+    color: var(--purple-main);
+}
+.login-estrela{
+    position: absolute;
+    width: 460px;
+    opacity: 0.35;
+}
+.login-prato{
+    position: relative;
+    width: 230px;
+    filter: drop-shadow(8px 8px 0 rgba(0, 0, 0, 0.15));
+}
+.login-side h2{
+    position: relative;
+    color: var(--purple-main);
+    font-size: 2rem;
+    line-height: 1.1;
+}
+.login-side p{
+    position: relative;
+    font-weight: 600;
+    color: var(--purple-main);
+}
+.login-panel{
+    padding: 40px 36px;
+    background-color: #473897;
+}
+.auth-toggle{
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+}
+.auth-toggle button{
+    flex: 1;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s background-color ease, 0.3s color ease;
+}
+.auth-toggle button:hover{
+    color: var(--orange);
+}
+.auth-toggle button.active{
+    background-color: var(--orange);
+    color: var(--purple-main);
+}
+.auth-forms .auth-form{
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+}
+.auth-forms .auth-form.active{
+    display: flex;
+}
+.login-titulo{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 4px;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.input-group label{
+    color: var(--yellow-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.campo{
+    position: relative;
+}
+.campo i{
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--purple-main);
+    pointer-events: none;
+}
+.campo input{
+    width: 100%;
+    height: 48px;
+    padding: 0 16px 0 44px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: 0.3s border-color ease, 0.3s box-shadow ease;
+}
+.campo input:focus{
+    border-color: var(--orange);
+    box-shadow: 0 0 0 4px rgba(253, 172, 50, 0.25);
+}
+.btn-cadastro{
+    height: 48px;
+    margin-top: 6px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--orange);
+    color: var(--purple-main);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+    transition: 0.2s transform ease, 0.3s background-color ease;
+}
+.btn-cadastro:hover{
+    background-color: var(--yellow);
+    transform: translateY(-2px);
+}
+
+/* PERFIL — apague o bloco antigo (.perfil-main, .perfil-titulo, .perfil-cards)
+   do style.css e cole este no lugar */
+.main-perfil{
+    background-color: var(--purple-main);
+    padding-bottom: 70px;
+}
+.perfil-page{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.perfil-topo{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #473897;
+}
+.perfil-avatar{
+    flex: 0 0 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--yellow);
+    color: var(--purple-main);
+    font-family: 'Titan One', sans-serif;
+    font-size: 3rem;
+    border-radius: 50%;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.perfil-boasvindas small{
+    color: var(--yellow-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.perfil-nome{
+    font-size: clamp(1.8rem, calc(3vw + 1rem), 3.2rem);
+    line-height: 1.1;
+    text-shadow: 6px 6px 8px rgba(0, 0, 0, 0.3);
+}
+.perfil-boasvindas p{
+    color: var(--white);
+    margin-top: 6px;
+}
+.perfil-sair{
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+.perfil-atalhos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.perfil-atalho{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 30px;
+    background-color: #333;
+    color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s transform ease;
+}
+.perfil-atalho:hover{
+    transform: translateY(-10px);
+}
+.perfil-atalho-icone{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--yellow);
+    color: var(--purple-main);
+    font-size: 26px;
+    border-radius: 50%;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.perfil-atalho h3{
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--orange);
+}
+.perfil-atalho p{
+    color: #ccc;
+    line-height: 1.6;
+}
+.perfil-badge{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 2px 12px;
+    background-color: var(--purple-main);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+}
+.perfil-explorar{
+    align-self: center;
+    padding: 12px 32px;
+    background-color: var(--orange);
+    color: var(--purple-main);
+    font-weight: 700;
+    border-radius: 12px;
+    transition: 0.3s background-color ease;
+}
+.perfil-explorar:hover{
+    background-color: var(--yellow);
+}
+
+@media (max-width: 968px){
+    .login-card{
+        grid-template-columns: 1fr;
+    }
+    .login-side{
+        padding: 28px;
+    }
+    .login-prato{
+        display: none;
+    }
+    .login-panel{
+        padding: 30px 22px;
+    }
+    .perfil-topo{
+        flex-direction: column;
+        text-align: center;
+    }
+    .perfil-sair{
+        margin-left: 0;
+    }
+    .perfil-atalhos{
+        grid-template-columns: 1fr;
+    }
 }
 

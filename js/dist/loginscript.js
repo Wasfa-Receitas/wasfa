@@ -22,8 +22,10 @@ signupTab.addEventListener('click', showSignup);
 // criar conta
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const username = document.getElementById('signup-name').value;
-    const email = document.getElementById('signup-email').value;
+    const username = document.getElementById('signup-name')
+        .value;
+    const email = document.getElementById('signup-email')
+        .value;
     const password = document.getElementById('signup-password').value;
     const passwordConfirm = document.getElementById('signup-password-confirm').value;
     if (password !== passwordConfirm) {
@@ -45,7 +47,8 @@ signupForm.addEventListener('submit', (e) => {
 // login
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = document.getElementById('login-email').value;
+    const email = document.getElementById('login-email')
+        .value;
     const password = document.getElementById('login-password').value;
     const raw = localStorage.getItem(email);
     const storedUser = raw ? JSON.parse(raw) : null;

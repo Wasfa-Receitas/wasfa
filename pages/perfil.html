@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil | Wasfa</title>
-   <link rel="stylesheet" href="../css/style.css"
-
-    <!-- FONTAWESOME -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="../js/dist/script.js"></script>
+    <script type="module" src="../js/dist/perfil.js"></script>
 </head>
 <body>
     <header>
@@ -18,10 +18,8 @@
           <li class="nav-item"><a class="nav-link" href="./receitas.html">Receitas</a></li>
           <li class="nav-item"><a class="nav-link" href="./sobre.html">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="./contato.html">Contato</a></li>
-          <li class="nav-item"><a href="./login.html" class="btn btn-cadastrar">Logout</a></li>
+          <li class="nav-item"><a href="./login.html" class="btn btn-cadastrar js-logout">Sair</a></li>
         </ul>
-
-        <!-- MENU MOBILE -->
         <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
       </nav>
       <nav class="nav-mobile" id="navMobile">
@@ -30,23 +28,48 @@
           <li class="nav-item-mobile"><a href="./receitas.html" class="nav-link-mobile">Receitas</a></li>
           <li class="nav-item-mobile"><a href="./sobre.html" class="nav-link-mobile">Sobre</a></li>
           <li class="nav-item-mobile"><a href="./contato.html" class="nav-link-mobile">Contato</a></li>
-          <li class="nav-item-mobile"><a href="./login.html" class="nav-link-mobile btn-cadastrar-mobile">Cadastrar</a></li>
+          <li class="nav-item-mobile"><a href="./login.html" class="nav-link-mobile btn-cadastrar-mobile js-logout">Sair</a></li>
         </ul>
       </nav>
     </header>
 
-    <main class="perfil-main">
-        <section class="perfil-titulo">
-            <img src="../assets/img/vetor1.png" alt="imagem com estrela verde de fundo e megafone branco">
-            <img src="../assets/img/perfil.png" alt="imagem com estrela de fundo uma silhueta de pessoa e a palavra perfil na frente">
-            <img src="../assets/img/vetor2.png" alt="imagem com estrela verde de fundo e ponto de interrogação" >
+    <main class="main-perfil">
+      <div class="perfil-page">
+
+        <section class="perfil-topo">
+          <div class="perfil-avatar" id="perfilAvatar">?</div>
+          <div class="perfil-boasvindas">
+            <small>Seu perfil</small>
+            <h1 class="title perfil-nome">Olá, <span id="perfilNome">visitante</span>!</h1>
+            <p>O que vamos cozinhar hoje?</p>
+          </div>
+          <button type="button" class="btn btn-cadastrar perfil-sair js-logout"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
         </section>
-        <section class="perfil-cards">
-            <img src="../assets/img/favoritos.png" alt="um quadrado amarelo com um coração e a palavra favoritos em roxo">
-            <img src="../assets/img/receitas.png" alt="um quadrado amarelo com um simbolo de certo e as palavras minhas receitas em roxo">
-             <img src="../assets/img/cardapio.png" alt="um quadrado amarelo a imagem de um livro com um garfo e uma faca cruzados e a palavra cardapio em roxo">
+
+        <section class="perfil-atalhos">
+        <a href="#" class="perfil-atalho">
+          <span class="perfil-badge">Em breve</span>
+          <div class="perfil-atalho-icone"><i class="fa-solid fa-heart"></i></div>
+          <h3>Favoritos</h3>
+          <p>Todas as receitas que você marcou com o coração.</p>
+        </a>
+        <a href="#" class="perfil-atalho">
+          <span class="perfil-badge">Em breve</span>
+          <div class="perfil-atalho-icone"><i class="fa-solid fa-circle-check"></i></div>
+          <h3>Minhas receitas</h3>
+          <p>As receitas que você criou e compartilhou.</p>
+        </a>
+        <a href="#" class="perfil-atalho">
+          <span class="perfil-badge">Em breve</span>
+          <div class="perfil-atalho-icone"><i class="fa-solid fa-book-open"></i></div>
+          <h3>Cardápio</h3>
+          <p>Monte o cardápio da semana com suas receitas.</p>
+        </a>
         </section>
-        
+
+        <a href="./receitas.html" class="perfil-explorar">Explorar receitas <i class="fa-solid fa-arrow-right"></i></a>
+
+      </div>
     </main>
 
     <footer>
@@ -54,16 +77,10 @@
       <div class="desenvolvedores">
         <h3>Equipe Wasfa</h3>
         <ul>
-          <li>Anny</li>
-          <li>Isabelly</li>
-          <li>Kaue</li>
-          <li>Natasha</li>
-          <li>Samuel</li>
-          <li>Yago</li>
+          <li>Anny</li><li>Isabelly</li><li>Kaue</li><li>Natasha</li><li>Samuel</li><li>Yago</li>
+        </ul>
       </div>
       <div class="rights-reserved"><p class="footer-text">© 2026 Wasfa. Todos os direitos reservados.</p></div>
     </footer>
-    <script type="module" src="../js/dist/script.js"></script>
-
 </body>
 </html>

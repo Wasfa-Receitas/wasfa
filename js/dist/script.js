@@ -38,17 +38,43 @@ if (roleta && indexTitle) {
         indexTitle.textContent = titulos[index];
     }, 6000);
 }
-// Botões de favoritar (corrigido: era um NodeList tratado como elemento único)
+// Mensagem flutuante (toast) exibida ao favoritar/desfavoritar
+let toastTimeout;
+function mostrarToast(mensagem) {
+    let toast = document.getElementById('toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = 'toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        document.body.appendChild(toast);
+    }
+    toast.textContent = mensagem;
+    toast.classList.add('show');
+    window.clearTimeout(toastTimeout);
+    toastTimeout = window.setTimeout(() => {
+        toast?.classList.remove('show');
+    }, 2500);
+}
+// Botões de favoritar
 const coracoes = document.querySelectorAll('.favoritar');
 coracoes.forEach((coracao) => {
-    coracao.addEventListener('click', () => {
+    coracao.addEventListener('click', (e) => {
+        // O card da receita é um <a>, então impede que o clique no coração
+        // navegue/recarregue a página.
+        e.preventDefault();
+        e.stopPropagation();
+        const titulo = coracao.closest('.receita, .receita-page')?.querySelector('.receita-title')?.textContent?.trim() ?? 'Receita';
         if (coracao.classList.contains('fa-regular')) {
             coracao.classList.remove('fa-regular');
             coracao.classList.add('fa-solid');
+            mostrarToast(`"${titulo}" foi adicionada aos favoritos!`);
         }
         else {
             coracao.classList.remove('fa-solid');
             coracao.classList.add('fa-regular');
+            mostrarToast(`"${titulo}" foi removida dos favoritos.`);
         }
     });
 });

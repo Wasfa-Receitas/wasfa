@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Wasfa</title>
-
-    <link rel="stylesheet" href="../css/loginstyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="../js/dist/script.js"></script>
+    <script type="module" src="../js/dist/loginscript.js"></script>
 </head>
-
 <body>
-
-<header>
+    <header>
       <nav class="navbar">
         <a href="../index.html"><img src="../assets/img/wasfalogo.png" alt="Wasfa" class="logo-img"></a>
         <ul class="navlist">
@@ -20,10 +19,9 @@
           <li class="nav-item"><a class="nav-link" href="./sobre.html">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="./contato.html">Contato</a></li>
         </ul>
-
         <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
       </nav>
-      <nav class="nav-mobile">
+      <nav class="nav-mobile" id="navMobile">
         <ul class="navlist-mobile">
           <li class="nav-item-mobile"><a href="../index.html" class="nav-link-mobile">Inicio</a></li>
           <li class="nav-item-mobile"><a href="./receitas.html" class="nav-link-mobile">Receitas</a></li>
@@ -32,88 +30,79 @@
         </ul>
       </nav>
     </header>
-<main>
 
-<div class="cadastro-container">
+    <main class="main-login">
+      <div class="login-card">
 
-    <div class="cadastro-box">
+        <aside class="login-side">
+          <img src="../assets/img/Estrela.png" alt="" class="login-estrela">
+          <img src="../assets/img/almoco.png" alt="" class="login-prato">
+          <h2 class="title">Bem-vindo ao Wasfa!</h2>
+          <p>Salve suas receitas favoritas e nunca mais fique sem saber o que cozinhar.</p>
+        </aside>
 
-        <div class="auth-toggle">
-            <button id="btn-login-tab" class="active">Entrar</button>
-            <button id="btn-signup-tab">Criar Conta</button>
-            <button id="btn-logout" style="display:none;">Sair</button>
-        </div>
+        <section class="login-panel">
+          <div class="auth-toggle">
+            <button type="button" id="btn-login-tab" class="active">Entrar</button>
+            <button type="button" id="btn-signup-tab">Criar conta</button>
+            <button type="button" id="btn-logout" style="display:none;">Sair</button>
+          </div>
 
-        <div class="auth-forms">
-
+          <div class="auth-forms">
             <form id="login-form" class="auth-form active">
-
-                <h1 class="cadastro-title">Entrar</h1>
-
+              <h1 class="title login-titulo">Entrar</h1>
                 <div class="input-group">
-                    <label>Email</label>
-                    <input placeholder="Insira seu email" id="login-email" required>
+                  <label for="login-email">Email</label>
+                  <div class="campo"><i class="fa-solid fa-envelope"></i>
+                    <input id="login-email" type="email" placeholder="voce@email.com" autocomplete="email" required></div>
                 </div>
-
                 <div class="input-group">
-                    <label>Senha</label>
-                    <input placeholder="Insira sua senha" type="password" id="login-password" required>
+                  <label for="login-password">Senha</label>
+                  <div class="campo"><i class="fa-solid fa-lock"></i>
+                    <input id="login-password" type="password" placeholder="Insira sua senha" autocomplete="current-password" required></div>
                 </div>
-
-                <button type="submit" class="btn-cadastro">Entrar</button>
+              <button type="submit" class="btn-cadastro">Entrar</button>
             </form>
 
             <form id="signup-form" class="auth-form">
-
-                <h1 class="cadastro-title">Criar conta</h1>
-
+              <h1 class="title login-titulo">Criar conta</h1>
                 <div class="input-group">
-                    <label>Nome</label>
-                    <input placeholder="Insira seu nome" id="signup-name" required>
+                  <label for="signup-name">Nome</label>
+                  <div class="campo"><i class="fa-solid fa-user"></i>
+                    <input id="signup-name" type="text" placeholder="Insira seu nome" autocomplete="name" required></div>
                 </div>
-
                 <div class="input-group">
-                    <label>Email</label>
-                    <input placeholder="Insira seu email" id="signup-email" required>
+                  <label for="signup-email">Email</label>
+                  <div class="campo"><i class="fa-solid fa-envelope"></i>
+                    <input id="signup-email" type="email" placeholder="voce@email.com" autocomplete="email" required></div>
                 </div>
-
                 <div class="input-group">
-                    <label>Senha</label>
-                    <input placeholder="Crie uma senha" type="password" id="signup-password" required>
+                  <label for="signup-password">Senha</label>
+                  <div class="campo"><i class="fa-solid fa-lock"></i>
+                    <input id="signup-password" type="password" placeholder="Crie uma senha" autocomplete="new-password" required></div>
                 </div>
-
                 <div class="input-group">
-                    <label>Confirmar senha</label>
-                    <input placeholder="Confirme sua senha" type="password" id="signup-password-confirm" required>
+                  <label for="signup-password-confirm">Confirmar senha</label>
+                  <div class="campo"><i class="fa-solid fa-lock"></i>
+                    <input id="signup-password-confirm" type="password" placeholder="Confirme sua senha" autocomplete="new-password" required></div>
                 </div>
-
-                <button type="submit" class="btn-cadastro">Cadastrar</button>
+              <button type="submit" class="btn-cadastro">Cadastrar</button>
             </form>
+          </div>
+        </section>
 
-        </div>
+      </div>
+    </main>
 
-    </div>
-
-</div>
-
-</main>
-<footer>
+    <footer>
       <img src="../assets/img/wasfalogo.png" alt="Wasfa" width="500" class="logo-footer">
       <div class="desenvolvedores">
         <h3>Equipe Wasfa</h3>
         <ul>
-          <li>Anny</li>
-          <li>Isabelly</li>
-          <li>Kaue</li>
-          <li>Natasha</li>
-          <li>Samuel</li>
-          <li>Yago</li>
+          <li>Anny</li><li>Isabelly</li><li>Kaue</li><li>Natasha</li><li>Samuel</li><li>Yago</li>
+        </ul>
       </div>
       <div class="rights-reserved"><p class="footer-text">© 2026 Wasfa. Todos os direitos reservados.</p></div>
     </footer>
-
-<script type="module" src="../js/dist/script.js"></script>
-<script type="module" src="../js/dist/loginscript.js"></script>
-
 </body>
 </html>
