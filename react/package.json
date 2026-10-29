@@ -2,11 +2,11 @@
   "name": "site",
   "version": "1.0.0",
   "description": "Wasfa is a Portuguese-language recipe discovery website where users can browse recipes by category, save favorites, and manage a personal profile. It's built as a static front-end project (HTML, CSS, TypeScript) with a lightweight client-side authentication flow using `localStorage`.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "watch": "tsc --watch"
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "watch": "vite build --watch"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,12 @@
   },
   "homepage": "https://github.com/Wasfa-Receitas/site#readme",
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "vite": "^6.4.0",
+    "@vitejs/plugin-react": "^4.7.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
