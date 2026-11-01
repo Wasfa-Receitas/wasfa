@@ -1,0 +1,33 @@
+{
+  "name": "wasfa-backend",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": ">=20.15.0" },
+  "scripts": {
+    "build": "prisma generate && tsc -p tsconfig.json",
+    "start": "node dist/main.js",
+    "start:dev": "prisma generate && node --watch -r ts-node/register src/main.ts",
+    "test": "npm run build && node --test test/app.test.cjs",
+    "test:mysql": "npm run build && node --test test/mysql.test.cjs",
+    "prisma:generate": "prisma generate",
+    "prisma:validate": "prisma validate",
+    "db:introspect": "prisma db pull"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.4.0",
+    "@nestjs/core": "^10.4.0",
+    "@nestjs/platform-express": "^10.4.0",
+    "@prisma/client": "6.19.0",
+    "dotenv": "^16.4.7",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^10.4.0",
+    "@types/node": "^20.17.0",
+    "prisma": "6.19.0",
+    "supertest": "^7.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model usuarios {
+  id_usuario Int    @id @default(autoincrement())
+  nome       String @db.VarChar(100)
+  email      String @unique(map: "email") @db.VarChar(150)
+  senha      String @db.VarChar(255)
+}
+
+model receitas {
+  id_receita           Int                    @id @default(autoincrement())
+  nome                 String                 @unique(map: "nome") @db.VarChar(100)
+  modo_preparo         String                 @db.Text
+  tempo_preparo        Int
+  dificuldade          String                 @db.VarChar(20)
+  receita_ingredientes receita_ingredientes[]
+}
+
+model ingredientes {
+  id_ingrediente       Int                    @id @default(autoincrement())
+  nome                 String                 @unique(map: "nome") @db.VarChar(100)
+  receita_ingredientes receita_ingredientes[]
+}
+
+model receita_ingredientes {
+  id_receita     Int
+  id_ingrediente Int
+  quantidade     String       @db.VarChar(50)
+  receitas       receitas     @relation(fields: [id_receita], references: [id_receita], onDelete: NoAction, onUpdate: NoAction, map: "receita_ingredientes_ibfk_1")
+  ingredientes   ingredientes @relation(fields: [id_ingrediente], references: [id_ingrediente], onDelete: NoAction, onUpdate: NoAction, map: "receita_ingredientes_ibfk_2")
+
+  @@id([id_receita, id_ingrediente])
+  @@index([id_ingrediente], map: "id_ingrediente")
+}
