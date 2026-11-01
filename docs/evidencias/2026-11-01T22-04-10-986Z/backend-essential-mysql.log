@@ -1,0 +1,7 @@
+
+Test Suites: 1 passed, 1 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        1.979 s
+Ran all test suites within paths "test/essential-mysql.spec.cjs".
+Test results written to: ..\docs\evidencias\2026-11-01T22-04-10-986Z\backend-essential-mysql.json

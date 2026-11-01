@@ -4,6 +4,7 @@
   "private": true,
   "engines": { "node": ">=20.15.0" },
   "scripts": {
+    "homologate": "node scripts/homologate.cjs",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/main.js",
     "start:dev": "prisma generate && node --watch -r ts-node/register src/main.ts",

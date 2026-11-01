@@ -1,0 +1,200 @@
+{
+  "startedAt": "2026-11-01T22:11:50.507Z",
+  "node": "v20.15.1",
+  "platform": "win32",
+  "checks": [
+    {
+      "id": "backend-build",
+      "command": [
+        "node",
+        "<npm-cli>",
+        "run",
+        "build"
+      ],
+      "directory": "backend",
+      "exitCode": 0,
+      "durationMs": 2922,
+      "passed": true
+    },
+    {
+      "id": "frontend-build",
+      "command": [
+        "node",
+        "<npm-cli>",
+        "run",
+        "build"
+      ],
+      "directory": "frontend",
+      "exitCode": 0,
+      "durationMs": 2327,
+      "passed": true
+    },
+    {
+      "id": "backend-node-tests",
+      "command": [
+        "node",
+        "--test",
+        "test/app.test.cjs",
+        "test/auth.test.cjs"
+      ],
+      "directory": "backend",
+      "exitCode": 0,
+      "durationMs": 2625,
+      "passed": true
+    },
+    {
+      "id": "backend-jest",
+      "command": [
+        "node",
+        "node_modules/jest/bin/jest.js",
+        "--runInBand",
+        "--json",
+        "--outputFile=C:\\Users\\Dell\\OneDrive\\Documentos\\Code\\wasfa\\docs\\evidencias\\2026-11-01T22-11-50-505Z\\backend-jest.json"
+      ],
+      "directory": "backend",
+      "exitCode": 0,
+      "durationMs": 4981,
+      "passed": true
+    },
+    {
+      "id": "backend-essential-mysql",
+      "command": [
+        "node",
+        "node_modules/jest/bin/jest.js",
+        "--runInBand",
+        "--runTestsByPath",
+        "test/essential-mysql.spec.cjs",
+        "--json",
+        "--outputFile=C:\\Users\\Dell\\OneDrive\\Documentos\\Code\\wasfa\\docs\\evidencias\\2026-11-01T22-11-50-505Z\\backend-essential-mysql.json"
+      ],
+      "directory": "backend",
+      "exitCode": 0,
+      "durationMs": 2429,
+      "passed": true
+    },
+    {
+      "id": "backend-legacy-mysql",
+      "command": [
+        "node",
+        "--test",
+        "test/mysql.test.cjs",
+        "test/recipes-mysql.test.cjs"
+      ],
+      "directory": "backend",
+      "exitCode": 0,
+      "durationMs": 1822,
+      "passed": true
+    },
+    {
+      "id": "frontend-tests",
+      "command": [
+        "node",
+        "<npm-cli>",
+        "test",
+        "--",
+        "--reporter=default",
+        "--reporter=json",
+        "--outputFile=C:\\Users\\Dell\\OneDrive\\Documentos\\Code\\wasfa\\docs\\evidencias\\2026-11-01T22-11-50-505Z\\frontend-tests.json"
+      ],
+      "directory": "frontend",
+      "exitCode": 0,
+      "durationMs": 3011,
+      "passed": true
+    },
+    {
+      "id": "frontend-live",
+      "command": [
+        "node",
+        "<npm-cli>",
+        "run",
+        "test:live",
+        "--",
+        "--reporter=default",
+        "--reporter=json",
+        "--outputFile=C:\\Users\\Dell\\OneDrive\\Documentos\\Code\\wasfa\\docs\\evidencias\\2026-11-01T22-11-50-505Z\\frontend-live.json"
+      ],
+      "directory": "frontend",
+      "exitCode": 0,
+      "durationMs": 2604,
+      "passed": true
+    }
+  ],
+  "sql": {
+    "schema": "wasfa_homolog_1793571110510_4f3f8b",
+    "scripts": 6,
+    "passed": true
+  },
+  "audits": {
+    "backend": {
+      "info": 0,
+      "low": 3,
+      "moderate": 21,
+      "high": 7,
+      "critical": 0,
+      "total": 31
+    },
+    "frontend": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    }
+  },
+  "productionSimulation": {
+    "backendPort": 3101,
+    "previewPort": 4175,
+    "checks": [
+      {
+        "uri": "/index.html",
+        "status": 200,
+        "passed": true
+      },
+      {
+        "uri": "/assets/main-lm_iUYcl.js",
+        "status": 200,
+        "passed": true
+      },
+      {
+        "uri": "/pages/receitas.html",
+        "status": 200,
+        "passed": true
+      },
+      {
+        "uri": "/pages/receita.html",
+        "status": 200,
+        "passed": true
+      },
+      {
+        "uri": "/pages/login.html",
+        "status": 200,
+        "passed": true
+      },
+      {
+        "uri": "/pages/perfil.html",
+        "status": 200,
+        "passed": true
+      },
+      {
+        "uri": "/pages/sobre.html",
+        "status": 200,
+        "passed": true
+      },
+      {
+        "uri": "/pages/contato.html",
+        "status": 200,
+        "passed": true
+      },
+      {
+        "uri": "GET /recipes + CORS",
+        "status": 200,
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "note": "Smoke HTTP local do build; sem deploy ou revisão visual de navegador."
+  },
+  "finishedAt": "2026-11-01T22:12:22.053Z",
+  "passed": true
+}

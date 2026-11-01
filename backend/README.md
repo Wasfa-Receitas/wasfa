@@ -1,5 +1,9 @@
 # Wasfa — backend (fase 5: pesquisa MySQL)
 
+## Entrega acadêmica e homologação (fase 7)
+
+O [README principal](../README.md) contém a instalação completa. Execute `npm run homologate` neste diretório para validar os seis SQLs em schema isolado, rodar builds e testes e produzir relatórios reais. Consulte [roteiro](../docs/ROTEIRO_TESTES.md), [ambientes](../docs/AMBIENTES.md) e [relatório](../docs/RELATORIO_HOMOLOGACAO.md). A suíte `test/essential-mysql.spec.cjs` usa Jest/Supertest e MySQL real; é ativada pelo executor com `WASFA_MYSQL_TESTS=1`. Na suíte padrão ela é ignorada para permitir execução sem servidor MySQL.
+
 NestJS 10, TypeScript e Prisma 6.19, compatíveis com Node 20.15+. Pacote independente do frontend. Implementa autenticação e pesquisa de receitas exclusivamente no MySQL existente, sem alterações no schema, nos scripts SQL ou no React. Não utiliza API de receitas, serviços externos ou inteligência artificial.
 
 ## Instalação

@@ -1,5 +1,7 @@
 # Wasfa — frontend React integrado
 
+A entrega acadêmica está documentada no [README principal](../README.md), com [roteiro](../docs/ROTEIRO_TESTES.md), [ambientes](../docs/AMBIENTES.md) e [relatório de homologação](../docs/RELATORIO_HOMOLOGACAO.md). O executor `npm run homologate`, em `backend/`, registra também os testes React e o build deste diretório.
+
 React + Vite consome o backend NestJS e as receitas do MySQL. O visual, componentes compartilhados e as URLs HTML foram mantidos. Não utiliza APIs externas de receitas.
 
 ## Executar

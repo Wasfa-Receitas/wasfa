@@ -1,0 +1,124 @@
+
+### schema.sql
+
+
+### inserts.sql
+
+
+### functions.sql
+
+
+### procedures.sql
+
+
+### views.sql
+
+
+### consultas.sql
+nome	tempo_preparo
+Vitamina de banana	5
+Omelete de queijo	10
+Salada de frutas	10
+Salada simples	10
+Panqueca de banana	15
+Sanduiche natural	15
+receita	ingrediente	quantidade
+Panqueca de banana	Aveia	2 colheres
+Panqueca de banana	Banana	1 unidade
+Panqueca de banana	Ovo	1 unidade
+nome	total_ingredientes
+Arroz com frango	4
+Macarrao ao tomate	4
+Salada simples	4
+Sanduiche natural	4
+Arroz com feijao	3
+Panqueca de banana	3
+Salada de frutas	3
+Vitamina de banana	3
+Omelete de queijo	2
+Pure de batata	2
+nome	total_receitas
+Alho	3
+Banana	3
+Tomate	3
+Alface	2
+Arroz	2
+Aveia	2
+Azeite	2
+Frango	2
+Leite	2
+Ovo	2
+Batata	1
+Cebola	1
+Cenoura	1
+Feijao	1
+Iogurte	1
+Maca	1
+Macarrao	1
+Pao	1
+Queijo	1
+dificuldade	quantidade_receitas	media_minutos
+Facil	8	15.0
+Medio	2	45.0
+
+
+### usuarios
+COUNT(*)
+3
+
+
+### receitas
+COUNT(*)
+10
+
+
+### ingredientes
+COUNT(*)
+20
+
+
+### associacoes
+COUNT(*)
+32
+
+
+### function
+fn_total_ingredientes(1)
+3
+
+
+### view-resumo
+COUNT(*)
+10
+
+
+### view-ingredientes
+COUNT(*)
+32
+
+
+### procedure-listar
+nome	quantidade
+Aveia	2 colheres
+Banana	1 unidade
+Ovo	1 unidade
+
+
+### procedure-cadastrar-rollback
+created
+1
+after_rollback
+10
+
+
+### servidor
+mysql_version
+8.0.46
+
+
+### engines
+TABLE_NAME	ENGINE
+ingredientes	InnoDB
+receita_ingredientes	InnoDB
+receitas	InnoDB
+usuarios	InnoDB
