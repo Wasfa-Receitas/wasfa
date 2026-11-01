@@ -1,9 +1,0 @@
-/* Preserve the original flex layout through React's mount element. */
-#root { display: flex; flex-direction: column; min-height: 100vh; width: 100%; }
-button.favoritar { border: 0; background: transparent; cursor: pointer; }
-.recipe-card-link { position: absolute; inset: 0; z-index: 1; }
-.receita button.favoritar { z-index: 2; }
-.btn-category[aria-pressed="true"] { outline: 3px solid var(--purple-main); outline-offset: 3px; }
-
-.receita { position: relative; }
-.receita button.favoritar { align-self: flex-start; position: relative; }
