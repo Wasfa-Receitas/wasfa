@@ -1,0 +1,21 @@
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [NestFactory] Starting Nest application...
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [InstanceLoader] AppModule dependencies initialized +20ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [InstanceLoader] DatabaseModule dependencies initialized +3ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [InstanceLoader] JwtModule dependencies initialized +2ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [InstanceLoader] ReceitasModule dependencies initialized +2ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [InstanceLoader] RecipesModule dependencies initialized +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [InstanceLoader] HealthModule dependencies initialized +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [InstanceLoader] AuthModule dependencies initialized +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RoutesResolver] HealthController {/health}: +9ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RouterExplorer] Mapped {/health, GET} route +3ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RouterExplorer] Mapped {/health/db, GET} route +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RoutesResolver] ReceitasController {/receitas}: +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RouterExplorer] Mapped {/receitas, GET} route +1ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RoutesResolver] AuthController {/auth}: +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RouterExplorer] Mapped {/auth/register, POST} route +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RouterExplorer] Mapped {/auth/login, POST} route +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RouterExplorer] Mapped {/auth/me, GET} route +1ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RoutesResolver] RecipesController {/recipes}: +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RouterExplorer] Mapped {/recipes, GET} route +0ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [RouterExplorer] Mapped {/recipes/:id, GET} route +1ms
+[Nest] 40712  - 01/11/2026, 19:04:31     LOG [NestApplication] Nest application successfully started +3ms

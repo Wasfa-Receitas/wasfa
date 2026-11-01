@@ -3,9 +3,9 @@ import { useAuth } from "../context/AuthContext";
 const links = [["/index.html", "In\xEDcio"], ["/pages/receitas.html", "Receitas"], ["/pages/sobre.html", "Sobre"], ["/pages/contato.html", "Contato"]];
 export default function Header({ page }) {
   const [open, setOpen] = useState(false);
-  const { logout } = useAuth();
-  const account = page === "perfil" ? "Sair" : "Cadastrar";
-  const accountLink = (mobile) => page !== "login" && <li className={mobile ? "nav-item-mobile" : "nav-item"}><a href="/pages/login.html" onClick={page === "perfil" ? (e) => {
+  const { user, logout } = useAuth();
+  const account = page === "perfil" ? "Sair" : user ? "Meu perfil" : "Cadastrar";
+  const accountLink = (mobile) => page !== "login" && <li className={mobile ? "nav-item-mobile" : "nav-item"}><a href={user && page !== "perfil" ? "/pages/perfil.html" : "/pages/login.html"} onClick={page === "perfil" ? (e) => {
     e.preventDefault();
     logout();
   } : void 0} className={mobile ? "nav-link-mobile btn-cadastrar-mobile" : "btn btn-cadastrar"}>{account}</a></li>;

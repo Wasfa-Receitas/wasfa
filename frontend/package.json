@@ -1,8 +1,10 @@
 {
   "name": "site",
   "version": "1.0.0",
-  "description": "Wasfa is a Portuguese-language recipe discovery website where users can browse recipes by category, save favorites, and manage a personal profile. It's built as a static front-end project (HTML, CSS, TypeScript) with a lightweight client-side authentication flow using `localStorage`.",
+  "description": "Wasfa recipe website built with React and Vite, integrated with NestJS and MySQL.",
   "scripts": {
+    "test": "vitest run",
+    "test:live": "vitest run --mode live test/live-api.test.jsx",
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
@@ -20,6 +22,10 @@
   },
   "homepage": "https://github.com/Wasfa-Receitas/site#readme",
   "devDependencies": {
+    "vitest": "4.1.12",
+    "jsdom": "^26.1.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/dom": "^10.4.0",
     "vite": "^6.4.0",
     "@vitejs/plugin-react": "^4.7.0"
   },

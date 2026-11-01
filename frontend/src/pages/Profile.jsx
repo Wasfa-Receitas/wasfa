@@ -1,19 +1,21 @@
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
 export default function Profile() {
-  const { user, logout } = useAuth();
+  const { user, loading, error, retry, logout } = useAuth();
   useEffect(() => {
-    if (!user) window.location.replace("/pages/login.html");
-  }, [user]);
+    if (!loading && !error && !user) window.location.replace("/pages/login.html");
+  }, [user, loading, error]);
+  if (loading) return <main className="main-perfil"><p role="status">Carregando perfil...</p></main>;
+  if (error) return <main className="main-perfil"><div role="alert"><p>{error}</p><button className="btn btn-cadastrar" onClick={retry}>Tentar novamente</button></div></main>;
   if (!user) return null;
   return <main className="main-perfil">
       <div className="perfil-page">
 
         <section className="perfil-topo">
-          <div className="perfil-avatar" id="perfilAvatar">{user?.charAt(0).toUpperCase()}</div>
+          <div className="perfil-avatar" id="perfilAvatar">{user.nome?.charAt(0).toUpperCase()}</div>
           <div className="perfil-boasvindas">
             <small>Seu perfil</small>
-            <h1 className="title perfil-nome">Olá, <span id="perfilNome">{user}</span>!</h1>
+            <h1 className="title perfil-nome">Olá, <span id="perfilNome">{user.nome}</span>!</h1>
             <p>O que vamos cozinhar hoje?</p>
           </div>
           <button type="button" className="btn btn-cadastrar perfil-sair js-logout" onClick={logout}><i className="fa-solid fa-right-from-bracket" /> Sair</button>

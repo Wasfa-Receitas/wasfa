@@ -7,3 +7,15 @@ button.favoritar { border: 0; background: transparent; cursor: pointer; }
 
 .receita { position: relative; }
 .receita button.favoritar { align-self: flex-start; position: relative; }
+
+.search-recipes { height: auto; min-height: 40px; padding: 12px; gap: 8px; }
+.search-fields { display: flex; flex-direction: column; flex: 1; min-width: 0; gap: .5rem; }
+.search-fields label { display: flex; flex-direction: column; font-size: .85rem; }
+.search-fields .input-search-recipes { width: 100%; min-width: 0; height: 32px; margin-left: 0; }
+.search-fields small { font-size: .75rem; }
+.init-receitas .search-recipes { margin: 1rem auto 2rem; max-width: 600px; width: 100%; }
+.recipe-image-placeholder { display: flex; align-items: center; justify-content: center; min-height: 180px; background: var(--purple-main, #6d397d); color: white; font-size: 3rem; border-radius: 12px; }
+.receita > .recipe-image-placeholder { width: 100%; }
+.recipes-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; margin: 2rem 0; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+.recipe-preparation { white-space: pre-wrap; }
