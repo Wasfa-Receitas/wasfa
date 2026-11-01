@@ -1,56 +1,45 @@
+import { useEffect, useState } from "react";
+import { recipesApi } from "../services/api";
 import FavoriteButton from "../components/FavoriteButton";
 export default function RecipeDetail() {
-  return <main className="main-receita">
-      <article className="receita-page">
-        <a href="/pages/receitas.html" className="receita-voltar"><i className="fa-solid fa-arrow-left" /> Voltar às receitas</a>
-
-        <section className="receita-hero">
-          <div className="receita-hero-img">
-            <img src="/assets/img/frango-assado.png" alt="Prato de frango assado com arroz" />
-          </div>
-
-          <div className="receita-hero-info">
-            <span className="receita-tag almoco-tag">ALMOÇO</span>
-            <h1 className="title receita-title">Frango Assado com Arroz</h1>
-            <p className="receita-resumo">Frango suculento com pele dourada e crocante, temperado com alho e limão, servido com um arroz soltinho. Um clássico de domingo que não dá trabalho.</p>
-
-            <ul className="receita-meta">
-              <li><i className="fa-regular fa-clock" /><span>40 min</span></li>
-              <li><i className="fa-solid fa-gauge-simple" /><span>Fácil</span></li>
-              <li><i className="fa-solid fa-utensils" /><span>4 porções</span></li>
-              <li className="receita-meta-nota"><i className="fa-solid fa-star" /><span>4.8</span></li>
-            </ul>
-
-            <FavoriteButton id="1" title="Frango Assado com Arroz" />
-          </div>
-        </section>
-
-        <section className="receita-corpo">
-          <div className="receita-bloco receita-ingredientes">
-            <h2 className="title">Ingredientes</h2>
-            <ul>
-              <li>1 frango inteiro (cerca de 1,5 kg)</li>
-              <li>4 dentes de alho amassados</li>
-              <li>Suco de 2 limões</li>
-              <li>2 colheres (sopa) de azeite</li>
-              <li>1 colher (sopa) de páprica</li>
-              <li>2 xícaras de arroz</li>
-              <li>4 xícaras de água quente</li>
-              <li>Sal e pimenta-do-reino a gosto</li>
-            </ul>
-          </div>
-
-          <div className="receita-bloco receita-preparo">
-            <h2 className="title">Modo de preparo</h2>
-            <ol>
-              <li>Misture o alho, o limão, o azeite, a páprica, o sal e a pimenta e esfregue no frango. Deixe marinar por 20 minutos.</li>
-              <li>Preaqueça o forno a 200 °C e coloque o frango em uma assadeira.</li>
-              <li>Asse por cerca de 40 minutos, regando com o próprio molho na metade do tempo, até dourar.</li>
-              <li>Enquanto isso, refogue o arroz com um fio de azeite, junte a água quente e cozinhe em fogo baixo até secar.</li>
-              <li>Deixe o frango descansar por 5 minutos antes de cortar e sirva com o arroz.</li>
-            </ol>
-          </div>
-        </section>
-      </article>
-    </main>;
+  const id = new URLSearchParams(window.location.search).get("id");
+  const validId = /^[1-9]\d*$/.test(id ?? "") && Number(id) <= 2147483647;
+  const [recipe, setRecipe] = useState(null);
+  const [loading, setLoading] = useState(validId);
+  const [error, setError] = useState("");
+  const [attempt, setAttempt] = useState(0);
+  useEffect(() => {
+    if (!validId) return;
+    const controller = new AbortController();
+    setLoading(true); setError(""); setRecipe(null);
+    recipesApi.detail(id, controller.signal).then((data) => { setRecipe(data); document.title = `${data.nome} | Wasfa`; })
+      .catch((err) => { if (err.name !== "AbortError") setError(err.status === 404 ? "Receita não encontrada." : err.message); })
+      .finally(() => { if (!controller.signal.aborted) setLoading(false); });
+    return () => controller.abort();
+  }, [id, validId, attempt]);
+  return <main className="main-receita"><article className="receita-page">
+    <a href="/pages/receitas.html" className="receita-voltar"><i className="fa-solid fa-arrow-left" /> Voltar às receitas</a>
+    {!validId && <p role="alert">Selecione uma receita válida na listagem.</p>}
+    {loading && <p role="status">Carregando receita...</p>}
+    {error && <div role="alert"><p>{error}</p><button className="btn btn-cadastrar" onClick={() => setAttempt((value) => value + 1)}>Tentar novamente</button></div>}
+    {recipe && !loading && !error && <>
+      <section className="receita-hero">
+        <div className="receita-hero-img recipe-image-placeholder" aria-hidden="true"><i className="fa-solid fa-utensils" /></div>
+        <div className="receita-hero-info">
+          <h1 className="title receita-title">{recipe.nome}</h1>
+          <ul className="receita-meta">
+            <li><i className="fa-regular fa-clock" /><span>{recipe.tempo_preparo} min</span></li>
+            <li><i className="fa-solid fa-gauge-simple" /><span>{recipe.dificuldade}</span></li>
+          </ul>
+          <FavoriteButton id={String(recipe.id_receita)} title={recipe.nome} />
+        </div>
+      </section>
+      <section className="receita-corpo">
+        <div className="receita-bloco receita-ingredientes"><h2 className="title">Ingredientes</h2>
+          {recipe.ingredientes.length ? <ul>{recipe.ingredientes.map((item) => <li key={item.id_ingrediente}>{item.quantidade} — {item.nome}</li>)}</ul> : <p>Ingredientes não informados.</p>}
+        </div>
+        <div className="receita-bloco receita-preparo"><h2 className="title">Modo de preparo</h2><p className="recipe-preparation">{recipe.modo_preparo || "Modo de preparo não informado."}</p></div>
+      </section>
+    </>}
+  </article></main>;
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 export default function FavoriteButton({ id, title }) {
   const [favorite, setFavorite] = useState(() => {
     try {
-      return JSON.parse(localStorage.getItem("wasfa:favorites") || "[]").includes(id);
+      return JSON.parse(localStorage.getItem("wasfa:mysql:favorites") || "[]").includes(id);
     } catch {
       return false;
     }
@@ -18,12 +18,12 @@ export default function FavoriteButton({ id, title }) {
     event.stopPropagation();
     let saved;
     try {
-      saved = JSON.parse(localStorage.getItem("wasfa:favorites") || "[]");
+      saved = JSON.parse(localStorage.getItem("wasfa:mysql:favorites") || "[]");
       if (!Array.isArray(saved)) saved = [];
     } catch {
       saved = [];
     }
-    localStorage.setItem("wasfa:favorites", JSON.stringify(favorite ? saved.filter((value) => value !== id) : [.../* @__PURE__ */ new Set([...saved, id])]));
+    localStorage.setItem("wasfa:mysql:favorites", JSON.stringify(favorite ? saved.filter((value) => value !== id) : [.../* @__PURE__ */ new Set([...saved, id])]));
     setFavorite(!favorite);
     setMessage('"' + title + '" foi ' + (favorite ? "removida dos favoritos." : "adicionada aos favoritos!"));
   }

@@ -1,4 +1,6 @@
 require('reflect-metadata');
+process.env.JWT_SECRET = 'test-only-key-not-for-production-1234567890';
+process.env.JWT_EXPIRES_IN = '3600';
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { Test } = require('@nestjs/testing');
