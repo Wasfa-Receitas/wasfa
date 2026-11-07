@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titan+One&display=swap');
 
 :root{
     --purple-main: #5344a9;
@@ -236,7 +235,7 @@ main{
     font-size: clamp(1.5rem, calc(5vw + 1rem), 5rem);
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
     z-index: 2;
-    transition: 0.3s all ease;
+    transition: color 150ms ease;
 }
 .init-title-h1-star{
     position: absolute;
@@ -261,17 +260,18 @@ main{
 }
 .roleta-comida-container{
     position: absolute;
-    width: 1200px;
-    height: 1200px;
-    bottom: -600px;
-    right: -600px;
-    transition: 2s all ease;
+    --roleta-size: clamp(600px, 100vw, 1200px);
+    width: var(--roleta-size);
+    height: var(--roleta-size);
+    bottom: calc(var(--roleta-size) / -2);
+    right: calc(var(--roleta-size) / -2);
+    transition: transform 600ms ease;
 
 }
 .roleta-comida{
     position: absolute;
-    width: 1200px;
-    height: 1200px;
+    width: var(--roleta-size);
+    height: var(--roleta-size);
     border-radius: 50%;
     overflow: hidden;
     transform: rotate(180deg);
@@ -283,34 +283,34 @@ main{
 }
 .roleta-comida-container img:nth-child(2){
     display: flex;
-    width: 800px;
-    top: -150px;
-    left: -300px;
+    width: 66.667%;
+    top: -12.5%;
+    left: -25%;
     bottom: 0;
 
 }
 .roleta-comida-container img:nth-child(3){
     display: flex;
-    width: 700px;
-    top: -50px;
-    left: 550px;
+    width: 58.333%;
+    top: -4.167%;
+    left: 45.833%;
     bottom: 0;
     transform: rotate(90deg);
 
 }
 .roleta-comida-container img:nth-child(4){
     display: flex;
-    width: 700px;
+    width: 58.333%;
     transform: rotate(180deg);
-    bottom: -150px;
-    left: 750px;
+    bottom: -12.5%;
+    left: 62.5%;
 
 }
 .roleta-comida-container img:nth-child(5){
     display: flex;
-    width: 700px;
-    bottom: -100px;
-    left: -50px;
+    width: 58.333%;
+    bottom: -8.333%;
+    left: -4.167%;
     transform: rotate(270deg);
 
 }
@@ -401,6 +401,7 @@ main{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 40px;
     align-items: start;
     margin-top: 100px;
@@ -415,10 +416,10 @@ main{
     color: var(--white);
     padding: 20px;
     border-radius: 20px;
-    transition: 0.3s transform ease;
+    transition: 150ms transform ease;
 }
 .receita:hover{
-    transform: translateY(-10px);
+    transform: translateY(-4px);
 }
 .receita img{
     background: #f4f4f4;
@@ -635,7 +636,7 @@ main{
 .receita-hero-info .favoritar{
     margin-top: 4px;
     cursor: pointer;
-    transition: 0.3s transform ease;
+    transition: 150ms transform ease;
 }
 .receita-hero-info .favoritar:hover{
     transform: scale(1.2);
@@ -785,10 +786,10 @@ main{
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s transform ease;
+    transition: 150ms transform ease;
 }
 .sobre-card:hover{
-    transform: translateY(-10px);
+    transform: translateY(-4px);
 }
 .sobre-card-icone{
     width: 56px;
@@ -831,7 +832,7 @@ main{
     color: var(--green);
     font-weight: 600;
     border-radius: 20px;
-    transition: 0.3s transform ease;
+    transition: 150ms transform ease;
 }
 .sobre-equipe-lista li:hover{
     transform: scale(1.1) rotate(-3deg);
@@ -1018,7 +1019,7 @@ footer img{
 .perfil-titulo img:nth-child(1),
 .perfil-titulo img:nth-child(3){
     width: 120px;
-    transition: 0.3s transform ease;
+    transition: 150ms transform ease;
 }
 
 .perfil-titulo img:nth-child(1):hover,
@@ -1042,8 +1043,7 @@ footer img{
 
 .perfil-cards img{
     width: 220px;
-    transition: 0.3s transform ease,
-                0.3s filter ease;
+    transition: transform 150ms ease;
     cursor: pointer;
     filter: drop-shadow(0 8px 10px rgba(0,0,0,0.25));
 }
@@ -1057,7 +1057,7 @@ footer img{
 
 
 .perfil-cards img:hover{
-    transform: translateY(-10px) scale(1.03);
+    transform: translateY(-4px) scale(1.03);
 }
 
 
@@ -1322,10 +1322,10 @@ footer img{
     color: var(--white);
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s transform ease;
+    transition: 150ms transform ease;
 }
 .perfil-atalho:hover{
-    transform: translateY(-10px);
+    transform: translateY(-4px);
 }
 .perfil-atalho-icone{
     width: 60px;
@@ -1397,3 +1397,7 @@ footer img{
     }
 }
 
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
