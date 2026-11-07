@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { recipesApi } from "../services/api";
 import FavoriteButton from "../components/FavoriteButton";
+import RecipeImage from "../components/RecipeImage";
 export default function RecipeDetail() {
   const id = new URLSearchParams(window.location.search).get("id");
   const validId = /^[1-9]\d*$/.test(id ?? "") && Number(id) <= 2147483647;
@@ -24,7 +25,7 @@ export default function RecipeDetail() {
     {error && <div role="alert"><p>{error}</p><button className="btn btn-cadastrar" onClick={() => setAttempt((value) => value + 1)}>Tentar novamente</button></div>}
     {recipe && !loading && !error && <>
       <section className="receita-hero">
-        <div className="receita-hero-img recipe-image-placeholder" aria-hidden="true"><i className="fa-solid fa-utensils" /></div>
+        <RecipeImage recipe={recipe} className="receita-hero-img" loading="eager" />
         <div className="receita-hero-info">
           <h1 className="title receita-title">{recipe.nome}</h1>
           <ul className="receita-meta">

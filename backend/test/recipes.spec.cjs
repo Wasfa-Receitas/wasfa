@@ -25,6 +25,16 @@ describe('Pesquisa de receitas: HTTP + serviço + consultas parametrizadas', () 
   afterAll(async () => { await app.close(); });
   const http = () => request(app.getHttpServer());
 
+  test('campo unico pesquisa nome ou ingrediente com o mesmo termo', async () => {
+    await http().get('/recipes').query({ q: ' banana ' }).expect(200);
+    for (const query of queries) {
+      expect(query.sql).toContain('r.nome LIKE ?');
+      expect(query.sql).toContain(' OR EXISTS');
+      expect(query.sql).toContain('i.nome LIKE ?');
+      expect(query.values.slice(0, 2)).toEqual(['%banana%', '%banana%']);
+    }
+  });
+
   test('lista com paginação padrão e aceita barra final', async () => {
     const result = await http().get('/recipes/').expect(200);
     expect(result.body).toEqual({ items: [{ ...row, matched_ingredients: 2 }], total: 1, page: 1, limit: 10 });

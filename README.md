@@ -1,6 +1,6 @@
 # Wasfa — entrega acadêmica
 
-Aplicação de receitas com React + Vite, NestJS e MySQL. Cadastro/login usam Argon2id e JWT. Pesquisa por nome e ingredientes e detalhes usam exclusivamente o MySQL. Não há API externa de receitas ou chatbot.
+Aplicação de receitas com React + Vite, NestJS e MySQL. Cadastro/login usam Argon2id e JWT. Pesquisa por nome e ingredientes e detalhes usam exclusivamente o MySQL. 
 
 ## Estrutura
 

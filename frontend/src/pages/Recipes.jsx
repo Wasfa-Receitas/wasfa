@@ -4,7 +4,8 @@ import RecipeCard from "../components/RecipeCard";
 import SearchBar from "../components/SearchBar";
 export default function Recipes() {
   const params = new URLSearchParams(window.location.search);
-  const name = params.get("name") ?? params.get("q") ?? "";
+  const q = params.get("q") ?? "";
+  const name = params.get("name") ?? "";
   const ingredients = params.get("ingredients") ?? "";
   const [page, setPage] = useState(1);
   const [data, setData] = useState(null);
@@ -14,11 +15,11 @@ export default function Recipes() {
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true); setError(""); setData(null);
-    recipesApi.list({ name, ingredients, page: String(page), limit: "10" }, controller.signal)
+    recipesApi.list({ q, name, ingredients, page: String(page), limit: "10" }, controller.signal)
       .then(setData).catch((err) => { if (err.name !== "AbortError") setError(err.message); })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
-  }, [name, ingredients, page, attempt]);
+  }, [q, name, ingredients, page, attempt]);
   return <main className="main-receitas"><section className="init-receitas">
     <h1 className="init-receitas-h1">Receitas</h1>
     <SearchBar />
