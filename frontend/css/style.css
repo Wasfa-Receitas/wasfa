@@ -401,6 +401,7 @@ main{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 40px;
     align-items: start;
     margin-top: 100px;
