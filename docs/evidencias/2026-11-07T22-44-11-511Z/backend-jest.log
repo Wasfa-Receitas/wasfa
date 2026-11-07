@@ -1,0 +1,9 @@
+
+PASS test/recipes.spec.cjs
+
+Test Suites: 1 skipped, 1 passed, 1 of 2 total
+Tests:       12 skipped, 30 passed, 42 total
+Snapshots:   0 total
+Time:        5.757 s
+Ran all test suites.
+Test results written to: ..\docs\evidencias\2026-11-07T22-44-11-511Z\backend-jest.json

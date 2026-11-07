@@ -1,0 +1,16 @@
+
+> site@1.0.0 test:live
+> vitest run --mode live test/live-api.test.jsx --reporter=default --reporter=json --outputFile=C:\Users\Dell\OneDrive\Documentos\Code\wasfa\docs\evidencias\2026-11-07T22-44-11-511Z\frontend-live.json
+
+
+ RUN  v4.1.12 C:/Users/Dell/OneDrive/Documentos/Code/wasfa/frontend
+
+ ✓ test/live-api.test.jsx (1 test) 227ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  19:45:01
+   Duration  2.18s (transform 169ms, setup 347ms, import 172ms, tests 227ms, environment 1.16s)
+
+JSON report written to C:/Users/Dell/OneDrive/Documentos/Code/wasfa/docs/evidencias/2026-11-07T22-44-11-511Z/frontend-live.json
+

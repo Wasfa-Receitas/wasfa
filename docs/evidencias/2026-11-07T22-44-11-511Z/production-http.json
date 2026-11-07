@@ -1,0 +1,53 @@
+{
+  "backendPort": 3101,
+  "previewPort": 4175,
+  "checks": [
+    {
+      "uri": "/index.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "uri": "/assets/main-pbkmhnpu.js",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "uri": "/pages/receitas.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "uri": "/pages/receita.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "uri": "/pages/login.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "uri": "/pages/perfil.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "uri": "/pages/sobre.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "uri": "/pages/contato.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "uri": "GET /recipes + CORS",
+      "status": 200,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "note": "Smoke HTTP local do build; sem deploy ou revisão visual de navegador."
+}

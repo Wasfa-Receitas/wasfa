@@ -1,0 +1,22 @@
+
+PASS test/essential-mysql.spec.cjs
+  Homologação essencial — Jest/Supertest e MySQL real
+    √ AUT-01 cadastro 201 e hash sem vazamento (131 ms)
+    √ AUT-02 email duplicado 409 (82 ms)
+    √ AUT-03 login 200 (36 ms)
+    √ AUT-04 credenciais inválidas 401 (34 ms)
+    √ AUT-05 perfil com JWT 200 e sem JWT 401 (16 ms)
+    √ REC-01 listagem paginada (8 ms)
+    √ REC-02 pesquisa parcial por nome (7 ms)
+    √ REC-03 pesquisa por um ingrediente (9 ms)
+    √ REC-04 vários ingredientes, ranking e duplicatas (8 ms)
+    √ REC-05 filtros combinados e ausência de resultados (12 ms)
+    √ REC-06 detalhes e ingredientes (11 ms)
+    √ REC-07 parâmetros inválidos 400 (7 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        2.525 s
+Ran all test suites within paths "test/essential-mysql.spec.cjs".
+Test results written to: ..\docs\evidencias\2026-11-07T22-44-11-511Z\backend-essential-mysql.json

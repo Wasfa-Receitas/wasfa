@@ -1,0 +1,29 @@
+
+> site@1.0.0 build
+> vite build
+
+vite v6.4.5 building for production...
+transforming...
+✓ 53 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                         0.73 kB │ gzip:  0.42 kB
+dist/pages/login.html                   0.74 kB │ gzip:  0.42 kB
+dist/pages/sobre.html                   0.74 kB │ gzip:  0.42 kB
+dist/pages/perfil.html                  0.74 kB │ gzip:  0.42 kB
+dist/pages/receita.html                 0.74 kB │ gzip:  0.42 kB
+dist/pages/contato.html                 0.74 kB │ gzip:  0.42 kB
+dist/pages/receitas.html                0.74 kB │ gzip:  0.42 kB
+dist/assets/main-DsyOdw42.css          22.04 kB │ gzip:  4.67 kB
+dist/assets/Contact-Br0A8p_1.js         0.28 kB │ gzip:  0.19 kB
+dist/assets/SearchBar-CfJgB3hx.js       0.64 kB │ gzip:  0.37 kB
+dist/assets/Home-yvughVaa.js            1.73 kB │ gzip:  0.77 kB
+dist/assets/Recipes-CkN405Ay.js         2.23 kB │ gzip:  1.02 kB
+dist/assets/RecipeDetail-BvYRhS8r.js    2.45 kB │ gzip:  1.07 kB
+dist/assets/Profile-B8Acv3rs.js         2.47 kB │ gzip:  0.83 kB
+dist/assets/About-DTy94vkS.js           2.78 kB │ gzip:  1.00 kB
+dist/assets/Login-Db3KAzH3.js           2.95 kB │ gzip:  1.20 kB
+dist/assets/RecipeImage-B19UOZLV.js     4.20 kB │ gzip:  1.19 kB
+dist/assets/main-pbkmhnpu.js          150.56 kB │ gzip: 49.06 kB
+✓ built in 1.83s
+
