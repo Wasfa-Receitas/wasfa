@@ -20,6 +20,7 @@ model receitas {
   modo_preparo         String                 @db.Text
   tempo_preparo        Int
   dificuldade          String                 @db.VarChar(20)
+  imagem_url           String?                @db.VarChar(2048)
   receita_ingredientes receita_ingredientes[]
 }
 

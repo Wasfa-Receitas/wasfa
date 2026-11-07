@@ -13,17 +13,17 @@ INSERT INTO ingredientes (nome) VALUES
 ('Batata'), ('Queijo'), ('Pao'), ('Macarrao'), ('Alho'),
 ('Farinha de trigo'), ('Maca'), ('Iogurte'), ('Feijao'), ('Azeite');
 
-INSERT INTO receitas (nome, modo_preparo, tempo_preparo, dificuldade) VALUES
-('Panqueca de banana', 'Amasse a banana, misture com ovo e aveia e doure na frigideira.', 15, 'Facil'),
-('Arroz com frango', 'Cozinhe o arroz e o frango com cebola e alho.', 40, 'Medio'),
-('Salada simples', 'Lave e corte alface, tomate e cenoura; tempere com azeite.', 10, 'Facil'),
-('Omelete de queijo', 'Bata os ovos, adicione queijo e cozinhe na frigideira.', 10, 'Facil'),
-('Macarrao ao tomate', 'Cozinhe o macarrao e prepare molho de tomate, alho e azeite.', 25, 'Facil'),
-('Pure de batata', 'Cozinhe e amasse as batatas, misturando com leite.', 30, 'Facil'),
-('Vitamina de banana', 'Bata banana, leite e aveia no liquidificador.', 5, 'Facil'),
-('Sanduiche natural', 'Recheie o pao com frango, alface e tomate.', 15, 'Facil'),
-('Salada de frutas', 'Corte banana e maca e misture com iogurte.', 10, 'Facil'),
-('Arroz com feijao', 'Cozinhe arroz e feijao separadamente, com alho.', 50, 'Medio');
+INSERT INTO receitas (nome, modo_preparo, tempo_preparo, dificuldade, imagem_url) VALUES
+('Panqueca de banana', 'Amasse a banana, misture com ovo e aveia e doure na frigideira.', 15, 'Facil', '/images/receitas/panqueca-de-banana.jpg'),
+('Arroz com frango', 'Cozinhe o arroz e o frango com cebola e alho.', 40, 'Medio', '/images/receitas/frango-com-arroz.jpg'),
+('Salada simples', 'Lave e corte alface, tomate e cenoura; tempere com azeite.', 10, 'Facil', '/images/receitas/salada-simples.jpg'),
+('Omelete de queijo', 'Bata os ovos, adicione queijo e cozinhe na frigideira.', 10, 'Facil', '/images/receitas/omelete-de-queijo.jpg'),
+('Macarrao ao tomate', 'Cozinhe o macarrao e prepare molho de tomate, alho e azeite.', 25, 'Facil', '/images/receitas/macarrao-ao-tomate.jpg'),
+('Pure de batata', 'Cozinhe e amasse as batatas, misturando com leite.', 30, 'Facil', '/images/receitas/pure-de-batata.jpg'),
+('Vitamina de banana', 'Bata banana, leite e aveia no liquidificador.', 5, 'Facil', '/images/receitas/vitamina-de-banana.jpg'),
+('Sanduiche natural', 'Recheie o pao com frango, alface e tomate.', 15, 'Facil', '/images/receitas/sanduiche-natural.jpg'),
+('Salada de frutas', 'Corte banana e maca e misture com iogurte.', 10, 'Facil', '/images/receitas/salada-de-frutas.jpg'),
+('Arroz com feijao', 'Cozinhe arroz e feijao separadamente, com alho.', 50, 'Medio', '/images/receitas/arroz-com-feijao.jpg');
 
 -- Cada linha relaciona uma receita com um ingrediente e sua quantidade.
 INSERT INTO receita_ingredientes (id_receita, id_ingrediente, quantidade) VALUES

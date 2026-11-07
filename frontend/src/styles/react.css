@@ -16,6 +16,8 @@ button.favoritar { border: 0; background: transparent; cursor: pointer; }
 .init-receitas .search-recipes { margin: 1rem auto 2rem; max-width: 600px; width: 100%; }
 .recipe-image-placeholder { display: flex; align-items: center; justify-content: center; min-height: 180px; background: var(--purple-main, #6d397d); color: white; font-size: 3rem; border-radius: 12px; }
 .receita > .recipe-image-placeholder { width: 100%; }
+.recipe-image { display: block; object-fit: cover; border-radius: 12px; }
+.receita > .recipe-image { width: 100%; height: 180px; }
 .recipes-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; margin: 2rem 0; }
 button:disabled { opacity: .55; cursor: not-allowed; }
 .recipe-preparation { white-space: pre-wrap; }

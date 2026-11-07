@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS receitas (
     nome VARCHAR(100) NOT NULL UNIQUE,
     modo_preparo TEXT NOT NULL,
     tempo_preparo INT NOT NULL,
-    dificuldade VARCHAR(20) NOT NULL
+    dificuldade VARCHAR(20) NOT NULL,
+    imagem_url VARCHAR(2048) NULL
 );
 
 -- Ingredientes disponiveis

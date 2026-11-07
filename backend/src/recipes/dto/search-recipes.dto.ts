@@ -6,6 +6,12 @@ export class SearchRecipesDto {
   @Transform(({ value }) => typeof value === 'string' ? value.trim() : value)
   @IsString()
   @MaxLength(100)
+  q?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => typeof value === 'string' ? value.trim() : value)
+  @IsString()
+  @MaxLength(100)
   name?: string;
 
   @ValidateIf((_object, value) => value !== undefined)
