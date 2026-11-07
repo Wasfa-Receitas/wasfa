@@ -5,7 +5,7 @@ export default function Login() {
 
         <aside className="login-side">
           <img src="/assets/img/Estrela.png" alt="" className="login-estrela" />
-          <img src="/assets/img/almoco.png" alt="" className="login-prato" />
+          <img src="/assets/img/almoco.webp" alt="" className="login-prato" />
           <h2 className="title">Bem-vindo ao Wasfa!</h2>
           <p>Salve suas receitas favoritas e nunca mais fique sem saber o que cozinhar.</p>
         </aside>

@@ -1,0 +1,142 @@
+{
+  "/images/receitas/arroz-com-feijao.jpg": [
+    {
+      "url": "/images/receitas/optimized/arroz-com-feijao-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/arroz-com-feijao-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/arroz-com-feijao-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/images/receitas/frango-com-arroz.jpg": [
+    {
+      "url": "/images/receitas/optimized/frango-com-arroz-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/frango-com-arroz-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/frango-com-arroz-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/images/receitas/macarrao-ao-tomate.jpg": [
+    {
+      "url": "/images/receitas/optimized/macarrao-ao-tomate-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/macarrao-ao-tomate-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/macarrao-ao-tomate-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/images/receitas/omelete-de-queijo.jpg": [
+    {
+      "url": "/images/receitas/optimized/omelete-de-queijo-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/omelete-de-queijo-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/omelete-de-queijo-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/images/receitas/panqueca-de-banana.jpg": [
+    {
+      "url": "/images/receitas/optimized/panqueca-de-banana-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/panqueca-de-banana-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/panqueca-de-banana-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/images/receitas/pure-de-batata.jpg": [
+    {
+      "url": "/images/receitas/optimized/pure-de-batata-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/pure-de-batata-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/pure-de-batata-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/images/receitas/salada-de-frutas.jpg": [
+    {
+      "url": "/images/receitas/optimized/salada-de-frutas-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/salada-de-frutas-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/salada-de-frutas-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/images/receitas/salada-simples.jpg": [
+    {
+      "url": "/images/receitas/optimized/salada-simples-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/salada-simples-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/salada-simples-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/images/receitas/sanduiche-natural.jpg": [
+    {
+      "url": "/images/receitas/optimized/sanduiche-natural-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/sanduiche-natural-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/sanduiche-natural-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/images/receitas/vitamina-de-banana.jpg": [
+    {
+      "url": "/images/receitas/optimized/vitamina-de-banana-320.webp",
+      "width": 320
+    },
+    {
+      "url": "/images/receitas/optimized/vitamina-de-banana-640.webp",
+      "width": 640
+    },
+    {
+      "url": "/images/receitas/optimized/vitamina-de-banana-1200.webp",
+      "width": 1200
+    }
+  ]
+}

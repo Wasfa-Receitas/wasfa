@@ -85,6 +85,17 @@ npm run dev
 
 Não sobrescreva configuração existente. `VITE_API_URL=http://localhost:3000` define a raiz da API, sem `/api`. Abra o endereço exibido pelo Vite, normalmente `http://localhost:5173`. Se mudar a porta, permita sua origem em `CORS_ORIGINS` no backend e reinicie os processos. Variáveis VITE são públicas: não coloque nelas credenciais do banco nem a chave JWT.
 
+## Otimizar fotos
+
+Mantenha os originais em `frontend/public/images/receitas/` e os caminhos originais no campo `imagem_url` do banco. Depois de adicionar ou substituir fotos, execute em `frontend/`:
+
+```powershell
+npm run optimize:images
+npm run build
+```
+
+O script gera WebP em 320, 640 e 1200 pixels e atualiza `src/recipe-images.json`. O frontend escolhe a variante conforme a tela, mantendo a foto original como alternativa. Publique os arquivos de `dist/`, incluindo as imagens geradas. Para avaliar desempenho, use o build de produção (`npm run preview`), pois o servidor de desenvolvimento inclui ferramentas adicionais.
+
 ## Funcionalidades e endpoints
 
 | Método/rota | Uso |

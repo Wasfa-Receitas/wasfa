@@ -4,8 +4,17 @@ export default function Home() {
   const titles = ["ALMO\xC7O E JANTAR", "SOBREMESA", "REFRESCO", "LANCHINHO"];
   const [turn, setTurn] = useState(0);
   useEffect(() => {
-    const timer = setInterval(() => setTurn((value) => value + 1), 6e3);
-    return () => clearInterval(timer);
+    const preference = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    let timer;
+    const update = () => {
+      clearInterval(timer);
+      if (!preference?.matches) timer = setInterval(() => {
+        if (!document.hidden) setTurn((value) => value + 1);
+      }, 6e3);
+    };
+    update();
+    preference?.addEventListener("change", update);
+    return () => { clearInterval(timer); preference?.removeEventListener("change", update); };
   }, []);
   return <><main>
       <section className="init-content">
@@ -31,10 +40,10 @@ export default function Home() {
         
         
       </div>
-      <img src="/assets/img/almoco.png" alt="" />
-      <img src="/assets/img/torta.png" alt="" />
-      <img src="/assets/img/suco.png" alt="" />
-      <img src="/assets/img/hotdog.png" alt="" />
+      <img src="/assets/img/almoco.webp" alt="" />
+      <img src="/assets/img/torta.webp" alt="" />
+      <img src="/assets/img/suco.webp" alt="" />
+      <img src="/assets/img/hotdog.webp" alt="" />
     </div>
     
 
