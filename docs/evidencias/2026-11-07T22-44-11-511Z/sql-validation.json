@@ -1,0 +1,43 @@
+{
+  "schema": "wasfa_homolog_1794091451520_d47213",
+  "version": "mysql_version\r\n8.0.46",
+  "entries": [
+    {
+      "file": "schema.sql",
+      "sha256": "ba49e7d261efcecb78b32217c3399c18275ff8a25fafcf6f31f77be461964705",
+      "status": "passed"
+    },
+    {
+      "file": "inserts.sql",
+      "sha256": "0ff64fb8af47cc53f75949924724a9aee8a3593c09d54230f87074b34a1c5e0b",
+      "status": "passed"
+    },
+    {
+      "file": "functions.sql",
+      "sha256": "7bd1f7ad27235ca61cdf4531c427af7a6d2de2a1fa271a4ae07ed474cbbcbcd9",
+      "status": "passed"
+    },
+    {
+      "file": "procedures.sql",
+      "sha256": "dae50edb13d165f8bc5dd97a1501d289c4ac42e471c8ffd314e874c72f4bd450",
+      "status": "passed"
+    },
+    {
+      "file": "views.sql",
+      "sha256": "03d2e01f75413ae73cd230f6e9fd2f70c36baf90b11edc501decfa3cde5a7d11",
+      "status": "passed"
+    },
+    {
+      "file": "consultas.sql",
+      "sha256": "e427f730e6ffbe87d54388979f4b67da4343fd488d13e1b12cfbf8da6a846e71",
+      "status": "passed"
+    }
+  ],
+  "seed": {
+    "usuarios": 3,
+    "receitas": 10,
+    "ingredientes": 20,
+    "associacoes": 32
+  },
+  "note": "Somente CREATE DATABASE/USE foram redirecionados em memória. Schema isolado mantido para inspeção; banco original não alterado."
+}
