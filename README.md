@@ -155,6 +155,3 @@ Cada execução grava logs, relatórios JSON e resumo com códigos de saída em 
 
 Consulte [roteiro de testes](docs/ROTEIRO_TESTES.md), [ambientes simulados](docs/AMBIENTES.md) e [relatório de homologação](docs/RELATORIO_HOMOLOGACAO.md). Instruções específicas também estão em [backend/README.md](backend/README.md) e [frontend/README.md](frontend/README.md).
 
-## Limites conhecidos
-
-Não há imagens/categorias/notas/porções no schema. Cards exibem ícone neutro e campos reais; filtro por categoria não é exibido. Favoritos permanecem locais, sem vínculo com a conta. Perfil mantém atalhos “Em breve”. Não há recuperação de senha, refresh token, revogação ou limitação de tentativas de login. As verificações automatizadas de React usam jsdom; revisão visual em navegador e deploy externo não foram presumidos como aprovados. As pendências de segurança e execução estão detalhadas no relatório.
