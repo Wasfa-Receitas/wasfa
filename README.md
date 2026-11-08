@@ -1,28 +1,18 @@
-# Wasfa — entrega acadêmica
+# Wasfa
 
-Aplicação de receitas com React + Vite, NestJS e MySQL. Cadastro/login usam Argon2id e JWT. Pesquisa por nome e ingredientes e detalhes usam exclusivamente o MySQL. 
-
-## Estrutura
-
-- `frontend/`: aplicação React, entradas HTML, estilos e imagens.
-- `backend/`: NestJS, Prisma, autenticação, pesquisa e testes.
-- `database/`: seis scripts SQL obrigatórios, preservados.
-- `docs/`: roteiro, ambientes, relatório e evidências reais de homologação.
+Aplicação de receitas com **React, NestJS, Prisma e MySQL 8**.
 
 ## Requisitos
 
-Node.js 22.12+ recomendado para a entrega (os testes desta máquina também registram a versão efetivamente usada), npm e MySQL 8 com InnoDB. Para validar automaticamente os scripts, instale o cliente `mysql`; no Windows o executor usa `C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql.exe`. Para outro local defina `MYSQL_BIN` com o caminho do executável.
+- Node.js 22.12+ e npm
+- MySQL 8 com InnoDB
+- Cliente MySQL no terminal para executar os scripts SQL
 
-## 1. Criar o banco uma única vez
+## Executar o projeto
 
-Se o banco `wasfa` já existe com os dados, prossiga para a configuração. Para uma base nova, abra o cliente MySQL a partir de `database/`:
+### 1. Preparar o banco
 
-```powershell
-cd database
-mysql -u root -p
-```
-
-Dentro do cliente:
+Se o banco `wasfa` ainda não existir, execute os seis scripts na ordem abaixo, a partir de `database/`:
 
 ```sql
 SOURCE schema.sql;
@@ -33,11 +23,11 @@ SOURCE views.sql;
 SOURCE consultas.sql;
 ```
 
-Os inserts dependem de banco novo com IDs iniciais. Inserts e criação de rotinas não são idempotentes; não repita indiscriminadamente sobre um banco populado. Os usuários de exemplo têm marcadores `hash_exemplo_*`, não senhas utilizáveis: cadastre um novo usuário pela aplicação. Contas locais do protótipo antigo não são contas MySQL.
+**Atenção:** os scripts de inserts e rotinas não devem ser repetidos indiscriminadamente em um banco já populado.
 
-## 2. Configurar o backend
+### 2. Iniciar a API
 
-Em um terminal, a partir da raiz:
+No terminal, a partir da raiz do projeto:
 
 ```powershell
 cd backend
@@ -45,23 +35,23 @@ npm ci
 Copy-Item .env.example .env
 ```
 
-Não sobrescreva um `.env` já configurado. Preencha localmente:
+Configure o arquivo `.env`:
 
 ```dotenv
 DATABASE_URL="mysql://USUARIO:SENHA@127.0.0.1:3306/wasfa?connect_timeout=5"
 PORT=3000
 CORS_ORIGINS="http://localhost:5173,http://127.0.0.1:5173"
-JWT_SECRET="<CHAVE_ALEATORIA_LOCAL>"
+JWT_SECRET="SUA_CHAVE_ALEATORIA"
 JWT_EXPIRES_IN=3600
 ```
 
-Codifique caracteres especiais de usuário/senha na URL. Gere a chave JWT localmente, sem compartilhá-la:
+Gere uma chave JWT localmente:
 
 ```powershell
 node -e "console.log(require('node:crypto').randomBytes(48).toString('base64'))"
 ```
 
-Confirme o banco existente e gere o cliente Prisma com o backend parado:
+Depois, com o banco disponível:
 
 ```powershell
 npm run db:introspect
@@ -70,11 +60,11 @@ npm run prisma:generate
 npm run start:dev
 ```
 
-A introspecção lê o banco e atualiza o mapeamento local; não executa migrations. Não use `db push` ou reset como instalação deste projeto. A API inicia por padrão em `http://localhost:3000`.
+API: http://localhost:3000
 
-## 3. Configurar o React
+### 3. Iniciar o frontend
 
-Em outro terminal, a partir da raiz:
+Em outro terminal:
 
 ```powershell
 cd frontend
@@ -83,75 +73,64 @@ Copy-Item .env.example .env.local
 npm run dev
 ```
 
-Não sobrescreva configuração existente. `VITE_API_URL=http://localhost:3000` define a raiz da API, sem `/api`. Abra o endereço exibido pelo Vite, normalmente `http://localhost:5173`. Se mudar a porta, permita sua origem em `CORS_ORIGINS` no backend e reinicie os processos. Variáveis VITE são públicas: não coloque nelas credenciais do banco nem a chave JWT.
+Confira se `VITE_API_URL=http://localhost:3000` está definido em `.env.local`. Acesse o endereço informado pelo Vite, normalmente http://localhost:5173.
 
-## Otimizar fotos
+## Funcionalidades
 
-Mantenha os originais em `frontend/public/images/receitas/` e os caminhos originais no campo `imagem_url` do banco. Depois de adicionar ou substituir fotos, execute em `frontend/`:
+- Cadastro e login com senha protegida por Argon2id e autenticação JWT.
+- Pesquisa de receitas por nome e ingredientes.
+- Filtros combinados e paginação.
+- Visualização dos detalhes e ingredientes das receitas.
 
-```powershell
-npm run optimize:images
-npm run build
-```
+## Endpoints principais
 
-O script gera WebP em 320, 640 e 1200 pixels e atualiza `src/recipe-images.json`. O frontend escolhe a variante conforme a tela, mantendo a foto original como alternativa. Publique os arquivos de `dist/`, incluindo as imagens geradas. Para avaliar desempenho, use o build de produção (`npm run preview`), pois o servidor de desenvolvimento inclui ferramentas adicionais.
+| Método | Rota | Descrição |
+|---|---|---|
+| POST | `/auth/register` | Cadastro |
+| POST | `/auth/login` | Login |
+| GET | `/auth/me` | Dados do usuário autenticado |
+| GET | `/recipes` | Pesquisa e listagem de receitas |
+| GET | `/recipes/:id` | Detalhes de uma receita |
+| GET | `/health` | Verificação da API |
+| GET | `/health/db` | Verificação da conexão com o banco |
 
-## Funcionalidades e endpoints
+Para rotas protegidas, envie `Authorization: Bearer <JWT>`.
 
-| Método/rota | Uso |
-| --- | --- |
-| `GET /health` | Processo HTTP disponível |
-| `GET /health/db` | Conectividade MySQL |
-| `POST /auth/register` | `{ nome, email, senha }`; cadastro 201, email duplicado 409 |
-| `POST /auth/login` | `{ email, senha }`; login 200, credenciais inválidas 401 |
-| `GET /auth/me` | Usuário público, exige `Authorization: Bearer <JWT>` |
-| `GET /recipes?name=banana` | Pesquisa parcial por nome |
-| `GET /recipes?ingredients=banana,aveia` | Busca por qualquer ingrediente, ordenada por correspondências |
-| `GET /recipes?name=banana&ingredients=aveia&page=1&limit=10` | Filtros combinados e paginação |
-| `GET /recipes/:id` | Receita e ingredientes com quantidades; 404 se não existir |
-| `GET /receitas` | Endpoint legado preservado |
+## Testes e build
 
-A listagem pública retorna `{ items, total, page, limit }`; detalhes usam apenas campos existentes. A página React de detalhes é `/pages/receita.html?id=<id>`. JWT fica em sessionStorage; senhas não são persistidas no navegador. Logout limpa a sessão da aba, sem revogação no servidor.
-
-## Testes e builds individuais
-
-No backend:
-
-```powershell
-npm test
-npm run test:mysql
-npm run test:recipes:mysql
-npm run build
-npm start
-```
-
-Os testes MySQL legados precisam dos dados iniciais. Os de autenticação usam rollback; o contador AUTO_INCREMENT pode avançar. Não execute testes contra um banco de produção real.
-
-No frontend:
-
-```powershell
-npm test
-npm run test:live
-npm run build
-npm run preview
-```
-
-O teste live exige a API acessível e os dados de banana/aveia; não escreve no banco. Preview normalmente usa a porta 4173, que precisa ser permitida no CORS. Builds Vite incorporam a URL da API definida no momento da compilação.
-
-## Homologação reproduzível e evidências
-
-Com dependências instaladas nos dois diretórios e `.env` do backend configurado:
+Backend:
 
 ```powershell
 cd backend
+npm test
+npm run build
+```
+
+Frontend:
+
+```powershell
+cd frontend
+npm test
+npm run build
+```
+
+A homologação completa pode ser executada em `backend/`:
+
+```powershell
 npm run homologate
 ```
 
-O executor cria um schema `wasfa_homolog_<identificador>`, executa cópias em memória dos seis scripts com somente CREATE DATABASE/USE redirecionados e verifica tabelas, dados, function, procedures e views. Os originais não são editados. O banco `wasfa` do aplicativo permanece intacto. É preciso um usuário com permissões de criar banco, tabelas, views e rotinas para essa validação.
+## Estrutura
 
-Executa builds, testes existentes, Jest/Supertest com MySQL real e React, e inicia processos temporários próprios nas portas **3101 e 4175** para smoke de produção local. Essas portas devem estar livres. O build React dessa simulação aponta para `http://127.0.0.1:3101`; para voltar a outra configuração, gere novo build com a URL desejada. O executor encerra somente os processos que criou e mantém o schema isolado para inspeção.
+- `frontend/`: interface React.
+- `backend/`: API NestJS, autenticação e acesso ao banco.
+- `database/`: scripts SQL.
+- `docs/`: roteiro, ambientes e evidências de homologação.
 
-Cada execução grava logs, relatórios JSON e resumo com códigos de saída em `docs/evidencias/<data-UTC>/`. Não publica os arquivos `.env`, senhas, hashes de usuários ou tokens. O teste Jest essencial executa cadastro/login e pesquisas no banco real dentro de uma transação revertida; não é um mock de resultados do MySQL.
+## Documentação complementar
 
-Consulte [roteiro de testes](docs/ROTEIRO_TESTES.md), [ambientes simulados](docs/AMBIENTES.md) e [relatório de homologação](docs/RELATORIO_HOMOLOGACAO.md). Instruções específicas também estão em [backend/README.md](backend/README.md) e [frontend/README.md](frontend/README.md).
-
+- [Roteiro de testes](docs/ROTEIRO_TESTES.md)
+- [Ambientes](docs/AMBIENTES.md)
+- [Relatório de homologação](docs/RELATORIO_HOMOLOGACAO.md)
+- [Instruções do backend](backend/README.md)
+- [Instruções do frontend](frontend/README.md)
