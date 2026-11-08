@@ -10,7 +10,7 @@ export default function Home() {
       clearInterval(timer);
       if (!preference?.matches) timer = setInterval(() => {
         if (!document.hidden) setTurn((value) => value + 1);
-      }, 6e3);
+      }, 3e3);
     };
     update();
     preference?.addEventListener("change", update);
