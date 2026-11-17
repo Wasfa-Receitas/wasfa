@@ -1,3 +1,10 @@
+#Componentes do Grupo 
+Isabelly Ferreira Lara 
+Kauê Yuuki Yamamoto
+Natasha Morais Silva 
+Samuel de Oliveira Gonçalves
+Yago Oliveira Silva 
+
 # Wasfa
 
 Aplicação de receitas com **React, NestJS, Prisma e MySQL 8**.
