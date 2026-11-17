@@ -1,9 +1,11 @@
-#Componentes do Grupo 
-Isabelly Ferreira Lara 
-Kauê Yuuki Yamamoto
-Natasha Morais Silva 
-Samuel de Oliveira Gonçalves
-Yago Oliveira Silva 
+
+## Componentes do Grupo
+
+- Isabelly Ferreira Lara
+- Kauê Yuuki Yamamoto
+- Natasha Morais Silva
+- Samuel de Oliveira Gonçalves
+- Yago Oliveira Silva
 
 # Wasfa
 
